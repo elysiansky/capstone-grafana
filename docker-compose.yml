@@ -1,0 +1,19 @@
+version: '3'
+services:
+  grafana:
+    image: my-grafana-image:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=PROJECTCAPSTONE@2024
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - grafana-net
+
+volumes:
+  grafana_data:
+
+networks:
+  grafana-net:
+    driver: bridge
