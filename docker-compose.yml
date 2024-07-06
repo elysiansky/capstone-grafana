@@ -1,7 +1,9 @@
 version: '3'
 services:
   grafana:
-    image: my-grafana-image:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile    
     ports:
       - "3000:3000"
     environment:
