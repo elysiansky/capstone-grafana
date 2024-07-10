@@ -1,13 +1,15 @@
 version: '3'
 services:
   grafana:
-    image: my-grafana-image:latest
+    image: shirishkc/grafana:latest
     ports:
       - "3000:3000"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=PROJECTCAPSTONE@2024
     volumes:
+      - C:\Users\shiri\OneDrive\Documents\GitHub\PROJECTS\PROJECTS\docker\grafana.ini:/etc/grafana/grafana.ini
       - grafana_data:/var/lib/grafana
+
     networks:
       - grafana-net
 
