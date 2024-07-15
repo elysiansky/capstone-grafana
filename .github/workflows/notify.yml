@@ -1,0 +1,31 @@
+name: Notify Discord on Pipeline Status
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Notify Discord on success
+        if: success()
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+             "content": "Pipeline successfully completed!"
+          }' ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Notify Discord on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+             "content": "Pipeline failed!"
+          }' ${{ secrets.DISCORD_WEBHOOK }}
