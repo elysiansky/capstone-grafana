@@ -32,7 +32,7 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
              "content": "Pipeline successfully completed!"
-          }' ${{ secrets.DISCORD_WEBHOOK }}
+          }' https://discord.com/api/webhooks/1247548546983661691/-P8YFZX_IIn2IyKdXNS3c2fMuJ2V6to6yUEnAig1LwXEFUMpyn8MPNIbMZB9yTmIzmcJ
 
       - name: Notify Discord on failure
         if: failure()
