@@ -16,16 +16,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Notify Discord on success
+      - name: Send Discord notification on success
         if: success()
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-             "content": "Pipeline successfully completed!"
-          }' ${{ secrets.DISCORD_WEBHOOK }}
+             "content": "**[ SUCCESS ] Pipeline successfully completed!**"
+          }' https://discord.com/api/webhooks/1247548546983661691/-P8YFZX_IIn2IyKdXNS3c2fMuJ2V6to6yUEnAig1LwXEFUMpyn8MPNIbMZB9yTmIzmcJ
 
-      - name: Notify Discord on failure
+      - name: Send Discord notification on failure
         if: failure()
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-             "content": "Pipeline failed!"
-          }' ${{ secrets.DISCORD_WEBHOOK }}
+             "content": "**[ FAILURE ] Pipeline failed!**"
+          }' https://discord.com/api/webhooks/1247548546983661691/-P8YFZX_IIn2IyKdXNS3c2fMuJ2V6to6yUEnAig1LwXEFUMpyn8MPNIbMZB9yTmIzmcJ
