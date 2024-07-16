@@ -21,4 +21,4 @@ To install Grafana using Helm:
 
    ```bash
    git clone https://github.com/ShirishKC07/capstone-chart-grafana.git
-   cd capstone-chart-grafana
+   cd capstone-chart-grafana 
