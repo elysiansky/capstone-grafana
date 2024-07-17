@@ -49,7 +49,7 @@ jobs:
           platforms: ${{ matrix.platform }}
           output: type=docker
           push: false
-          tags: capstone-vulnerable-php83:${{ env.sha }}-${{ matrix.platform }}
+          tags: capstone-grafana:${{ env.sha }}-${{ matrix.platform }}
   
   publish: # Reference publish.yaml workflow
     needs: build # This job depends on the successful completion of "build"
